@@ -1,0 +1,13 @@
+<nav>
+    <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Support</a></li>
+        <li><a href="FAQs.html">FAQs</a></li>
+        <li>
+            <input type="text" id="searchInput" placeholder="Search trips or flights..." oninput="searchTrips()" />
+        </li>
+    </ul>
+</nav>
+<div id="searchResults"></div>
