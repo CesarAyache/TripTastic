@@ -339,4 +339,56 @@ nav ul li a:hover {
   }
 
 /*Above we designed the recommendations page*/
+.previous-flights {
+  /* padding: 0px ; */
+  /* background-color: #f8f8f8; */
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.previous-flights h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+}
+
+#flights-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  gap: 20px;
+}
+
+.flight-card {
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.flight-card select,
+.flight-card textarea,
+.flight-card button {
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flight-card button {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.flight-card button:hover {
+  background-color: #0b6fc2;
+}
 
