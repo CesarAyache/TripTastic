@@ -40,106 +40,107 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const dummyFlights = [
-          {
-            id: 1,
-            airline: "Qatar Airways",
-            destination: "Tokyo",
-            departure_date: "2024-12-25",
-          },
-          {
-            id: 2,
-            airline: "Lufthansa",
-            destination: "Paris",
-            departure_date: "2025-01-10",
-          },
-        ];
+        // test case:
+        // const dummyFlights = [
+        //   {
+        //     id: 1,
+        //     airline: "Qatar Airways",
+        //     destination: "Tokyo",
+        //     departure_date: "2024-12-25",
+        //   },
+        //   {
+        //     id: 2,
+        //     airline: "Lufthansa",
+        //     destination: "Paris",
+        //     departure_date: "2025-01-10",
+        //   },
+        // ];
 
-        const container = document.getElementById("flights-container");
+        // const container = document.getElementById("flights-container");
 
-        dummyFlights.forEach((flight) => {
-          const card = document.createElement("div");
-          card.className = "flight-card";
-          card.innerHTML = `
-            <strong>${flight.airline}</strong> to ${flight.destination} on ${flight.departure_date}<br>
-            <div class="rating">
-              <label>Rate:</label>
-              <select id="rate-${flight.id}">
-                <option value="1">★☆☆☆☆</option>
-                <option value="2">★★☆☆☆</option>
-                <option value="3">★★★☆☆</option>
-                <option value="4">★★★★☆</option>
-                <option value="5">★★★★★</option>
-              </select>
-              <br>
-              <textarea id="comment-${flight.id}" placeholder="Write a review..."></textarea>
-              <button onclick="submitReview(${flight.id})">Submit</button>
-            </div>
-          `;
-          container.appendChild(card);
-        });
-
-        window.submitReview = function (flightId) {
-          const rating = document.getElementById(`rate-${flightId}`).value;
-          const comment = document.getElementById(`comment-${flightId}`).value;
-          alert(
-            `Submitting review for Flight ${flightId}:\nRating: ${rating}\nComment: ${comment}`
-          );
-        };
-
-        // fetch("get_previous_flights.php")
-        //   .then((res) => res.json())
-        //   .then((data) => {
-        //     const container = document.getElementById("flights-container");
-        //     if (data.length === 0) {
-        //       container.innerHTML = "<p>No previous flights found.</p>";
-        //       return;
-        //     }
-        //     data.forEach((flight) => {
-        //       const card = document.createElement("div");
-        //       card.className = "flight-card";
-        //       card.innerHTML = `
-        //         <strong>${flight.airline}</strong> to ${flight.destination} on ${flight.departure_date}<br>
-        //         <div class="rating">
-        //           <label>Rate:</label>
-        //           <select id="rate-${flight.id}">
-        //             <option value="1">★☆☆☆☆</option>
-        //             <option value="2">★★☆☆☆</option>
-        //             <option value="3">★★★☆☆</option>
-        //             <option value="4">★★★★☆</option>
-        //             <option value="5">★★★★★</option>
-        //           </select>
-        //           <br>
-        //           <textarea id="comment-${flight.id}" placeholder="Write a review..."></textarea>
-        //           <button onclick="submitReview(${flight.id})">Submit</button>
-        //         </div>
-        //       `;
-        //       container.appendChild(card);
-        //     });
-        //   });
+        // dummyFlights.forEach((flight) => {
+        //   const card = document.createElement("div");
+        //   card.className = "flight-card";
+        //   card.innerHTML = `
+        //     <strong>${flight.airline}</strong> to ${flight.destination} on ${flight.departure_date}<br>
+        //     <div class="rating">
+        //       <label>Rate:</label>
+        //       <select id="rate-${flight.id}">
+        //         <option value="1">★☆☆☆☆</option>
+        //         <option value="2">★★☆☆☆</option>
+        //         <option value="3">★★★☆☆</option>
+        //         <option value="4">★★★★☆</option>
+        //         <option value="5">★★★★★</option>
+        //       </select>
+        //       <br>
+        //       <textarea id="comment-${flight.id}" placeholder="Write a review..."></textarea>
+        //       <button onclick="submitReview(${flight.id})">Submit</button>
+        //     </div>
+        //   `;
+        //   container.appendChild(card);
+        // });
 
         // window.submitReview = function (flightId) {
         //   const rating = document.getElementById(`rate-${flightId}`).value;
         //   const comment = document.getElementById(`comment-${flightId}`).value;
-
-        //   const formData = new FormData();
-        //   formData.append("flight_id", flightId);
-        //   formData.append("rating", rating);
-        //   formData.append("comment", comment);
-
-        //   fetch("submit_review.php", {
-        //     method: "POST",
-        //     body: formData,
-        //   })
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //       if (data.success) {
-        //         alert("Review submitted successfully!");
-        //       } else {
-        //         alert("Error: " + data.error);
-        //       }
-        //     });
+        //   alert(
+        //     `Submitting review for Flight ${flightId}:\nRating: ${rating}\nComment: ${comment}`
+        //   );
         // };
+
+        fetch("get_previous_flights.php")
+          .then((res) => res.json())
+          .then((data) => {
+            const container = document.getElementById("flights-container");
+            if (data.length === 0) {
+              container.innerHTML = "<p>No previous flights found.</p>";
+              return;
+            }
+            data.forEach((flight) => {
+              const card = document.createElement("div");
+              card.className = "flight-card";
+              card.innerHTML = `
+                <strong>${flight.airline}</strong> to ${flight.destination} on ${flight.departure_date}<br>
+                <div class="rating">
+                  <label>Rate:</label>
+                  <select id="rate-${flight.id}">
+                    <option value="1">★☆☆☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="5">★★★★★</option>
+                  </select>
+                  <br>
+                  <textarea id="comment-${flight.id}" placeholder="Write a review..."></textarea>
+                  <button onclick="submitReview(${flight.id})">Submit</button>
+                </div>
+              `;
+              container.appendChild(card);
+            });
+          });
+
+        window.submitReview = function (flightId) {
+          const rating = document.getElementById(`rate-${flightId}`).value;
+          const comment = document.getElementById(`comment-${flightId}`).value;
+
+          const formData = new FormData();
+          formData.append("flight_id", flightId);
+          formData.append("rating", rating);
+          formData.append("comment", comment);
+
+          fetch("submit_review.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.success) {
+                alert("Review submitted successfully!");
+              } else {
+                alert("Error: " + data.error);
+              }
+            });
+        };
       });
     </script>
   </body>
