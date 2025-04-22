@@ -38,3 +38,44 @@ def login():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# # Create new dict to track point history per user
+# point_history = {}
+
+# @app.route('/book-flight', methods=['POST'])
+# def book_flight():
+#     data = request.get_json()
+#     email = data['email']
+#     destination = data['destination']
+#     distance = data['distance']
+#     date = data['date']
+#     trip_id = str(len(bookings.get(email, [])) + 1)
+
+#     new_trip = {
+#         'id': trip_id,
+#         'destination': destination,
+#         'date': date,
+#         'distance': distance
+#     }
+
+#     # Save booking
+#     bookings.setdefault(email, []).append(new_trip)
+
+#     # Calculate and add points
+#     earned_points = distance * 0.5
+#     user_points[email] = user_points.get(email, 0) + earned_points
+
+#     # Save point history
+#     point_record = {
+#         'destination': destination,
+#         'date': date,
+#         'distance': distance,
+#         'points': earned_points
+#     }
+#     point_history.setdefault(email, []).append(point_record)
+
+#     return jsonify({
+#         'message': 'Booking successful',
+#         'earned_points': earned_points,
+#         'total_points': user_points[email]
+#     })
