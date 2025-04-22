@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upcoming Trips - TripTastic</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="profile-icon">
+    <a href="profile.html" title="View Profile">
+      <i class="fas fa-user-circle"></i>
+      <span>View Profile</span>
+    </a>
+  </div>
+
+  <h1 style="text-align:center;">Your Upcoming Trips</h1>
+  <div id="upcomingContainer" style="width: 80%; margin: auto;"></div>
+
+  <script>
+    const currentUser = localStorage.getItem("loggedInUserEmail");
+
+    fetch(`http://127.0.0.1:5000/upcoming?email=${currentUser}`)
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("upcomingContainer");
+        if (data.trips.length === 0) {
+          container.innerHTML = "<p>No upcoming trips.</p>";
+        } else {
+          container.innerHTML = data.trips.map(trip => `
+            <div class="home-box">
+              <h3>${trip.destination}</h3>
+              <p>Date: ${trip.date}</p>
+              <p>Distance: ${trip.distance} miles</p>
+              <button onclick="cancelBooking('${trip.id}')">Cancel</button>
+            </div>
+          `).join('');
+        }
+      });
+
+    function cancelBooking(tripId) {
+      fetch('http://127.0.0.1:5000/cancel-booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: currentUser, trip_id: tripId })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert(data.message);
+        location.reload();
+      });
+    }
+  </script>
+</body>
+</html>
