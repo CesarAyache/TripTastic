@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile - TripTastic</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="profile-icon" style="right: 2rem; top: 2rem;">
+        <a href="homepage.html" title="Back to Home">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+    </div>
+
+    <h1 style="text-align:center; margin-top:50px;">Your TripTastic Profile</h1>
+
+    <div class="loginSignUp" style="width: 600px; margin-top: 30px;">
+        <h2 id="profileName">Name: </h2>
+        <p id="profileEmail">Email: </p>
+        <p id="profileAge">Age: </p>
+        <p id="loyaltyPoints">Loyalty Points: </p>
+        
+        <h3>Unlocked Rewards:</h3>
+        <ul id="rewardsList" style="text-align:left;"></ul>
+    </div>
+
+    <div style="width: 90%; margin: 40px auto;">
+        <h2 style="text-align:center;">Points History</h2>
+        <table border="1" style="width:100%; background:white; border-collapse: collapse;">
+            <thead>
+                <tr style="background:#eee;">
+                    <th style="padding: 12px;">Destination</th>
+                    <th style="padding: 12px;">Date</th>
+                    <th style="padding: 12px;">Distance (miles)</th>
+                    <th style="padding: 12px;">Points Earned</th>
+                </tr>
+            </thead>
+            <tbody id="pointsHistoryTable"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const userEmail = localStorage.getItem("loggedInUserEmail");
+
+        fetch(`http://127.0.0.1:5000/user-info?email=${userEmail}`)
+            .then(res => res.json())
+            .then(user => {
+                document.getElementById("profileName").textContent += user.name;
+                document.getElementById("profileEmail").textContent += user.email;
+                document.getElementById("profileAge").textContent += user.age;
+                document.getElementById("loyaltyPoints").textContent += user.points;
+
+                const rewards = document.getElementById("rewardsList");
+                if (user.points >= 1000) rewards.innerHTML += "<li>✔️ 10% Flight Discount</li>";
+                if (user.points >= 2000) rewards.innerHTML += "<li>✔️ Free Airport Lounge Access</li>";
+                if (user.points >= 3000) rewards.innerHTML += "<li>✔️ Free Flight Upgrade</li>";
+                if (user.points >= 5000) rewards.innerHTML += "<li>🌍 VIP Traveler Status</li>";
+                if (rewards.innerHTML === "") rewards.innerHTML = "<li>No rewards unlocked yet.</li>";
+            });
+
+        fetch(`http://127.0.0.1:5000/points-history?email=${userEmail}`)
+            .then(res => res.json())
+            .then(data => {
+                const table = document.getElementById("pointsHistoryTable");
+                if (data.history.length === 0) {
+                    table.innerHTML = "<tr><td colspan='4' style='text-align:center;'>No bookings yet.</td></tr>";
+                } else {
+                    table.innerHTML = data.history.map(h => `
+                        <tr>
+                            <td style="padding:10px;">${h.destination}</td>
+                            <td style="padding:10px;">${h.date}</td>
+                            <td style="padding:10px;">${h.distance}</td>
+                            <td style="padding:10px;">${h.points}</td>
+                        </tr>
+                    `).join('');
+                }
+            });
+    </script>
+</body>
+</html>
