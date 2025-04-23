@@ -1,0 +1,13 @@
+[
+    {
+      "image": "images/flight1.jpg",
+      "title": "Paris Getaway",
+      "details": "Round-trip from $299 | Includes baggage"
+    },
+    {
+      "image": "images/flight2.jpg",
+      "title": "Dubai Express",
+      "details": "Round-trip from $379 | Direct flight"
+    }
+  ]
+  

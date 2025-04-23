@@ -1,33 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TripTastic</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel = "stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <script src="../script.js"></script>
-</head>
-<body>
-    <div class="profile-icon">
-        <a href="login.html" title="Login / Sign Up">
-          <i class="fas fa-user-circle"></i>
-          <span>View Profile</span>
-        </a>
-      </div>
-    <br><br><br><br><br><br>
-    <nav>
-        <ul>
-            <li><a href="homepage.html">  Home</a></li>
-            <li><a href="explore.html">Explore</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Support</a></li>  
-            <li><a href="FAQs.html">FAQs</a></li>
-            <!--This is the navigation bar in the form of an unordered list where the elements link to other components of the project-->
-        </ul>
-    </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore - TripTastic</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      class="profile-icon"
+      style="position: absolute; right: 20px; top: 10px"
+    >
+      <a
+        href="login.html"
+        title="Login / Sign Up"
+        style="color: #1e90ff; text-decoration: none"
+      >
+        <i class="fas fa-user-circle" style="font-size: 24px"></i>
+        <span>View Profile</span>
+      </a>
+    </div>
 
-  
-</body>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="explore.html" class="active">Explore</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Support</a></li>
+        <li><a href="FAQs.html">FAQs</a></li>
+      </ul>
+    </nav>
+    <div class="filters">
+      <label for="filter">Filter by:</label>
+      <select id="filter">
+        <option value="all">All</option>
+        <option value="flights">Flights</option>
+        <option value="packages">Packages</option>
+        <option value="hotels">Hotels</option>
+      </select>
+    </div>
+    <div class="explore-section">
+      <h2><i class="fas fa-plane"></i> Flights</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="../images/flight1.jfif" alt="Paris" />
+          <div class="card-body">
+            <h3>Paris Getaway</h3>
+            <p>Round-trip from $299 | Includes baggage</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight2.jfif" alt="Dubai" />
+          <div class="card-body">
+            <h3>Dubai Express</h3>
+            <p>Round-trip from $379 | Direct flight</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="../images/flight3.JdS0gRMOKp50OdrdPtnkpwHaE8"
+            alt="New York"
+          />
+          <div class="card-body">
+            <h3>NYC Escape</h3>
+            <p>From $410 | Economy class</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight4.jfif" alt="Tokyo" />
+          <div class="card-body">
+            <h3>Tokyo Adventure</h3>
+            <p>From $850 | With meals</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight5.jfif" alt="Istanbul" />
+          <div class="card-body">
+            <h3>Istanbul Escape</h3>
+            <p>From $330 | Round-trip</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight6.jpg" alt="Cairo" />
+          <div class="card-body">
+            <h3>Cairo Escape</h3>
+            <p>From $250 | Historical City</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight7.jfif" alt="London" />
+          <div class="card-body">
+            <h3>London Direct</h3>
+            <p>From $400 | Morning Flights</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight8.jpg" alt="Athens" />
+          <div class="card-body">
+            <h3>Athens Classic</h3>
+            <p>From $320 | 4h direct</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight9.webp" alt="Madrid" />
+          <div class="card-body">
+            <h3>Madrid Journey</h3>
+            <p>Evening flight | From $310</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <h2><i class="fas fa-suitcase"></i> Packages</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="../images/package1.jfif" alt="Rome" />
+          <div class="card-body">
+            <h3>Rome Discovery</h3>
+            <p>Flight + Hotel + Tour | $699</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/package2.jfif" alt="Bali" />
+          <div class="card-body">
+            <h3>Bali Honeymoon</h3>
+            <p>7 Days | All-Inclusive | $999</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/package3.jfif" alt="Thailand" />
+          <div class="card-body">
+            <h3>Thailand Explorer</h3>
+            <p>Flight + Hotel + Beach Tours | $749</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/package4.jfif" alt="Morocco" />
+          <div class="card-body">
+            <h3>Magical Morocco</h3>
+            <p>8 Days | All-Inclusive | $880</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/package5.jfif" alt="Spain" />
+          <div class="card-body">
+            <h3>Spanish Fiesta</h3>
+            <p>7 Days | Flamenco + Food Tour | $870</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/package6.avif" alt="Canada" />
+          <div class="card-body">
+            <h3>Canadian Wild</h3>
+            <p>Nature + City | 6 Nights | $980</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/package7.jfif" alt="India" />
+          <div class="card-body">
+            <h3>Golden Triangle</h3>
+            <p>Delhi, Agra, Jaipur | $660</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/package8.webp" alt="Vietnam" />
+          <div class="card-body">
+            <h3>Vietnam Discovery</h3>
+            <p>Hanoi to Ho Chi Minh | 8 Days | $750</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/package9.webp" alt="Greece" />
+          <div class="card-body">
+            <h3>Greek Islands</h3>
+            <p>Mykonos & Santorini | 6 Days | $860</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <h2><i class="fas fa-hotel"></i> Hotels</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="../images/hotel1.jfif" alt="Paris" />
+          <div class="card-body">
+            <h3>Le Grand Paris</h3>
+            <p>5 stars | Near Eiffel Tower | $180/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel2.jpg" alt="Dubai" />
+          <div class="card-body">
+            <h3>Dubai Marina View</h3>
+            <p>Luxury Suite | Pool Access | $220/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel3.jfif" alt="New York" />
+          <div class="card-body">
+            <h3>Times Square Stay</h3>
+            <p>4 stars | Central Manhattan | $190/night</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel4.jpg" alt="Tokyo" />
+          <div class="card-body">
+            <h3>Shibuya Heights</h3>
+            <p>3 stars | Budget Friendly | $120/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel5.jfif" alt="Rome" />
+          <div class="card-body">
+            <h3>Roma Boutique</h3>
+            <p>5 stars | Historic Center | $200/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel6.jfif" alt="Istanbul" />
+          <div class="card-body">
+            <h3>Ottoman Palace</h3>
+            <p>Luxury Ottoman-style | $160/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel7.jfif" alt="Bangkok" />
+          <div class="card-body">
+            <h3>Siam View</h3>
+            <p>Skyline Views | 4 stars | $130/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel8.jfif" alt="Barcelona" />
+          <div class="card-body">
+            <h3>Gothic Inn</h3>
+            <p>Historic District | $145/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel9.jpg" alt="Lisbon" />
+          <div class="card-body">
+            <h3>Lisbon Lights</h3>
+            <p>City Center | Rooftop Bar | $150/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("filter").addEventListener("change", function () {
+        const value = this.value;
+
+        const allSections = {
+          flights:
+            document.querySelector("h2 i.fa-plane").parentElement
+              .nextElementSibling,
+          packages:
+            document.querySelector("h2 i.fa-suitcase").parentElement
+              .nextElementSibling,
+          hotels:
+            document.querySelector("h2 i.fa-hotel").parentElement
+              .nextElementSibling,
+        };
+
+        for (const key in allSections) {
+          if (value === "all" || key === value) {
+            allSections[key].style.display = "flex";
+            allSections[key].previousElementSibling.style.display = "block";
+          } else {
+            allSections[key].style.display = "none";
+            allSections[key].previousElementSibling.style.display = "none";
+          }
+        }
+      });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,13 @@
+[
+    {
+      "image": "images/hotel1.jpg",
+      "title": "Le Grand Paris",
+      "details": "5 stars | Near Eiffel Tower | $180/night"
+    },
+    {
+      "image": "images/hotel2.jpg",
+      "title": "Dubai Marina View",
+      "details": "Luxury Suite | Pool Access | $220/night"
+    }
+  ]
+  
