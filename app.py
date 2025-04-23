@@ -1,6 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 from flask_cors import CORS
 import json, os
+import sqlite3
 
 app = Flask(__name__)
 CORS(app)
@@ -47,31 +48,75 @@ def login():
 
 # -------------------- ADMIN --------------------
 
-ADMIN_EMAIL = 'admin@triptastic.com'
-ADMIN_PASS = 'admin123'
+# ADMIN_EMAIL = 'admin@triptastic.com'
+# ADMIN_PASS = 'admin123'
 
-@app.route('/admin-login', methods=['POST'])
-def admin_login():
-    data = request.get_json()
-    if data['email'] == ADMIN_EMAIL and data['password'] == ADMIN_PASS:
-        return jsonify({'message': 'Admin login successful'})
-    return jsonify({'message': 'Access denied'}), 403
+# @app.route('/admin-login', methods=['POST'])
+# def admin_login():
+#     data = request.get_json()
+#     if data['email'] == ADMIN_EMAIL and data['password'] == ADMIN_PASS:
+#         return jsonify({'message': 'Admin login successful'})
+#     return jsonify({'message': 'Access denied'}), 403
 
-@app.route('/users', methods=['GET'])
-def get_users():
-    users = read_users()
-    user_list = [{'name': v['name'], 'email': k, 'age': v['age']} for k, v in users.items()]
-    return jsonify({'users': user_list})
+# @app.route('/users', methods=['GET'])
+# def get_users():
+#     users = read_users()
+#     user_list = [{'name': v['name'], 'email': k, 'age': v['age']} for k, v in users.items()]
+#     return jsonify({'users': user_list})
 
-@app.route('/delete-user', methods=['POST'])
-def delete_user():
-    data = request.get_json()
-    users = read_users()
-    if data['email'] in users:
-        del users[data['email']]
-        write_users(users)
-        return jsonify({'message': 'User deleted'})
-    return jsonify({'message': 'User not found'}), 404
+# @app.route('/delete-user', methods=['POST'])
+# def delete_user():
+#     data = request.get_json()
+#     users = read_users()
+#     if data['email'] in users:
+#         del users[data['email']]
+#         write_users(users)
+#         return jsonify({'message': 'User deleted'})
+#     return jsonify({'message': 'User not found'}), 404
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'
+
+# Admin credentials
+ADMIN_EMAIL = "triptastic_only@admin.com"
+ADMIN_PASSWORD = "triptastic123"
+
+def get_db_connection():
+    conn = sqlite3.connect('database.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
+@app.route('/manager', methods=['GET', 'POST'])
+def manager_login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        if email == ADMIN_EMAIL and password == ADMIN_PASSWORD:
+            session['admin_logged_in'] = True
+            return redirect(url_for('manager_dashboard'))
+        else:
+            return render_template('manager.html', error="Invalid email or password.")
+    return render_template('manager.html')
+
+@app.route('/manager_dashboard')
+def manager_dashboard():
+    if not session.get('admin_logged_in'):
+        return redirect(url_for('manager_login'))
+
+    conn = get_db_connection()
+    users = conn.execute('SELECT * FROM users').fetchall()
+    trips = conn.execute('SELECT * FROM bookings').fetchall()
+    conn.close()
+
+    return render_template('manager_dashboard.html', users=users, trips=trips)
+
+@app.route('/logout')
+def logout():
+    session.pop('admin_logged_in', None)
+    return redirect(url_for('manager_login'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 # -------------------- BOOKINGS & POINTS --------------------
 

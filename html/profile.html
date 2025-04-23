@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="profile-header">
+        <div class="logo">
+            <h1>SkyPoints</h1>
+        </div>
+        <div class="profile-icon" onclick="toggleProfileInfo()">
+            <img src="profile-icon.png" alt="Profile Icon">
+        </div>
+    </header>
+
+    <main>
+        <section class="user-info">
+            <h2>Welcome, Rami!</h2>
+            <p><strong>Name:</strong> Rami [Last Name]</p>
+            <p><strong>Email:</strong> rami@example.com</p>
+            <p><strong>Total Loyalty Points:</strong> 3,500</p>
+        </section>
+
+        <section class="action-section">
+            <button class="action-button" onclick="showRewards()">View Claimable Rewards</button>
+        </section>
+
+        <section id="rewards-section" class="hidden">
+            <h3>Claimable Rewards</h3>
+            <ul>
+                <li>Flight Discount (500 points)
+                    <button class="redeem-button" onclick="redeemReward('discount')">Claim</button>
+                </li>
+                <li>Airport Lounge Access (800 points)
+                    <button class="redeem-button" onclick="redeemReward('lounge')">Claim</button>
+                </li>
+                <li>Priority Boarding (300 points)
+                    <button class="redeem-button" onclick="redeemReward('priority')">Claim</button>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SkyPoints | Your trusted travel companion</p>
+    </footer>
+
+    <script>
+        function toggleProfileInfo() {
+            const profileInfo = document.getElementById('profile-info');
+            profileInfo.classList.toggle('hidden');
+        }
+
+        function showRewards() {
+            const rewardsSection = document.getElementById('rewards-section');
+            rewardsSection.classList.toggle('hidden');
+        }
+
+        function redeemReward(type) {
+            alert(`You have successfully redeemed the ${type}! Your points will be updated.`);
+            // Add backend call here for redemption logic
+        }
+    </script>
+</body>
+</html>

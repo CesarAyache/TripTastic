@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TipTastic - Manager Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="dashboard-header">
+      <h1>TipTastic Manager Dashboard</h1>
+      <button class="logout-button" onclick="window.location.href='/logout'">
+        Logout
+      </button>
+    </header>
+
+    <main>
+      <section class="dashboard-summary">
+        <h2>Welcome, Manager!</h2>
+        <p>Manage users and trips efficiently with your dashboard.</p>
+      </section>
+
+      <section class="user-section">
+        <h3>Users</h3>
+        <div id="user-list">
+          {% for user in users %}
+          <div class="user-card">
+            <h4>User: {{ user.name }}</h4>
+            <p>Email: {{ user.email }}</p>
+            <p>Total Trips: {{ user.total_trips }}</p>
+            <button
+              class="details-button"
+              onclick="window.location.href='/view_trips/{{ user.id }}'"
+            >
+              View Trips
+            </button>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="trip-section">
+        <h3>Trips</h3>
+        <div id="trip-list">
+          {% for trip in trips %}
+          <div class="trip-card">
+            <h4>Flight to {{ trip.destination }}</h4>
+            <p><strong>User:</strong> {{ trip.user_name }}</p>
+            <p><strong>Date:</strong> {{ trip.date }}</p>
+            <p><strong>Status:</strong> {{ trip.status }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 TipTastic | Travel Manager Portal</p>
+    </footer>
+  </body>
+</html>

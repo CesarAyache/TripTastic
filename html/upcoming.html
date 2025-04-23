@@ -1,31 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TripTastic</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel = "stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <script src="../script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="profile-icon">
-        <a href="login.html" title="Login / Sign Up">
-          <i class="fas fa-user-circle"></i>
-          <span>View Profile</span>
-        </a>
-      </div>
-    <br><br><br><br><br><br>
+      <a href="login.html" title="Login / Sign Up">
+        <i class="fas fa-user-circle"></i>
+        <span>View Profile</span>
+      </a>
+    </div>
+    <br /><br /><br /><br /><br /><br />
     <nav>
-        <ul>
-            <li><a href="homepage.html">  Home</a></li>
-            <li><a href="explore.html">Explore</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Support</a></li>  
-            <li><a href="FAQs.html">FAQs</a></li>
-            <!--This is the navigation bar in the form of an unordered list where the elements link to other components of the project-->
-        </ul>
+      <ul>
+        <li><a href="homepage.html"> Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Support</a></li>
+        <li><a href="FAQs.html">FAQs</a></li>
+        <!--This is the navigation bar in the form of an unordered list where the elements link to other components of the project-->
+      </ul>
     </nav>
-</body>
+    <header class="upcoming-header">
+      <div class="logo">
+        <h1>SkyPoints</h1>
+      </div>
+      <div class="profile-icon" onclick="window.location.href='profile.html'">
+        <img src="profile-icon.png" alt="Profile Icon" />
+      </div>
+    </header>
+
+    <main>
+      <section class="trip-summary">
+        <h2>Your Upcoming Trips</h2>
+        <p>
+          Manage your trips effortlessly and stay prepared for your adventures!
+        </p>
+      </section>
+
+      <section class="trip-list">
+        <div class="trip-card">
+          <h3>Paris</h3>
+          <p><strong>Date:</strong> May 15, 2025</p>
+          <p><strong>Distance:</strong> 3,000 miles</p>
+          <button class="cancel-button" onclick="cancelBooking('Paris')">
+            Cancel Booking
+          </button>
+        </div>
+        <div class="trip-card">
+          <h3>Tokyo</h3>
+          <p><strong>Date:</strong> June 20, 2025</p>
+          <p><strong>Distance:</strong> 6,500 miles</p>
+          <button class="cancel-button" onclick="cancelBooking('Tokyo')">
+            Cancel Booking
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <button
+        class="book-flight-button"
+        onclick="alert('Redirecting to booking page...')"
+      >
+        Book a New Flight
+      </button>
+    </footer>
+
+    <script>
+      function cancelBooking(destination) {
+        alert(`Your booking to ${destination} has been successfully canceled.`);
+      }
+    </script>
+  </body>
 </html>
