@@ -34,15 +34,20 @@
         <li><a href="FAQs.html">FAQs</a></li>
       </ul>
     </nav>
-    <div class="filters">
-      <label for="filter">Filter by:</label>
-      <select id="filter">
-        <option value="all">All</option>
-        <option value="flights">Flights</option>
-        <option value="packages">Packages</option>
-        <option value="hotels">Hotels</option>
-      </select>
+    <div class="filters" style="text-align: center; margin-bottom: 30px">
+      <input
+        type="text"
+        id="search"
+        placeholder="Search by destination or detail"
+        style="
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          width: 300px;
+        "
+      />
     </div>
+
     <div class="explore-section">
       <h2><i class="fas fa-plane"></i> Flights</h2>
       <div class="card-container">
@@ -118,6 +123,102 @@
           <div class="card-body">
             <h3>Madrid Journey</h3>
             <p>Evening flight | From $310</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight10.jpg" alt="Cape Town" />
+          <div class="card-body">
+            <h3>Cape Town Escape</h3>
+            <p>Scenic route | $540</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight11.jpg" alt="Sydney" />
+          <div class="card-body">
+            <h3>Sydney Sojourn</h3>
+            <p>Direct | $960 | Premium Economy</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight12.jpg" alt="Berlin" />
+          <div class="card-body">
+            <h3>Berlin City Hop</h3>
+            <p>From $370 | Quick Connect</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight13.avif" alt="Lisbon" />
+          <div class="card-body">
+            <h3>Lisbon Lights</h3>
+            <p>From $340 | Daily Flights</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight14.jpg" alt="Vienna" />
+          <div class="card-body">
+            <h3>Vienna View</h3>
+            <p>Round-trip | $410 | Classical City</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel15.jpg" alt="Seoul" />
+          <div class="card-body">
+            <h3>Seoul Express</h3>
+            <p>Night Flights | $620</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight16.jpg" alt="Toronto" />
+          <div class="card-body">
+            <h3>Toronto Breeze</h3>
+            <p>From $430 | Non-stop</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/flight17.jpg" alt="Amsterdam" />
+          <div class="card-body">
+            <h3>Amsterdam Adventure</h3>
+            <p>Charming Canals | $460</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/flight18.jpg" alt="Bangkok" />
+          <div class="card-body">
+            <h3>Bangkok Buzz</h3>
+            <p>Night Market Access | $490</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight19.jfif" alt="Buenos Aires" />
+          <div class="card-body">
+            <h3>Buenos Aires</h3>
+            <p>From $250 | Historical City</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight20.avif" alt="New Zealand" />
+          <div class="card-body">
+            <h3>Auckland</h3>
+            <p>From $400 | Morning Flights</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/flight21.jpg" alt="Athens" />
+          <div class="card-body">
+            <h3>Athens Classic</h3>
+            <p>From $320 | 4h direct</p>
             <button>Book Now</button>
           </div>
         </div>
@@ -272,33 +373,113 @@
             <button>Book Now</button>
           </div>
         </div>
+        <div class="card">
+          <img src="../images/hotel10.jpg" alt="Cape Town" />
+          <div class="card-body">
+            <h3>Table Bay Retreat</h3>
+            <p>Seafront | 4 stars | $175/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel1.jfif" alt="Sydney" />
+          <div class="card-body">
+            <h3>Opera Harbor View</h3>
+            <p>Luxury | Sydney CBD | $240/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/hotel12.jpg" alt="Berlin" />
+          <div class="card-body">
+            <h3>Berlin Urban Stay</h3>
+            <p>Trendy Design | $155/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel3.jfif" alt="Lisbon" />
+          <div class="card-body">
+            <h3>Lisbon Loft</h3>
+            <p>City Center | Rooftop Lounge | $140/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/hotel4.jpg" alt="Vienna" />
+          <div class="card-body">
+            <h3>Vienna Elegance</h3>
+            <p>Classical Interiors | $195/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../images/flight15.webp" alt="Seoul" />
+          <div class="card-body">
+            <h3>Seoul Serenity</h3>
+            <p>Modern Spa Hotel | $160/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/hotel16.jpg" alt="Toronto" />
+          <div class="card-body">
+            <h3>Toronto Tower Inn</h3>
+            <p>Near CN Tower | $185/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/hotel17.jpg" alt="Amsterdam" />
+          <div class="card-body">
+            <h3>Amsterdam Haven</h3>
+            <p>Canal View | $170/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/hotel18.jpg" alt="Bangkok" />
+          <div class="card-body">
+            <h3>Bangkok Boutique</h3>
+            <p>Near Grand Palace | $125/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/hotel6.jpg" alt="Istanbul" />
+          <div class="card-body">
+            <h3>Ottoman Palace</h3>
+            <p>Luxury Ottoman-style | $160/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/hotel7.jpg" alt="Bangkok" />
+          <div class="card-body">
+            <h3>Siam View</h3>
+            <p>Skyline Views | 4 stars | $130/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/hotel8.jpg" alt="Barcelona" />
+          <div class="card-body">
+            <h3>Gothic Inn</h3>
+            <p>Historic District | $145/night</p>
+            <button>Book Now</button>
+          </div>
+        </div>
       </div>
     </div>
     <script>
-      document.getElementById("filter").addEventListener("change", function () {
-        const value = this.value;
+      document.getElementById("search").addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        const cards = document.querySelectorAll(".card");
 
-        const allSections = {
-          flights:
-            document.querySelector("h2 i.fa-plane").parentElement
-              .nextElementSibling,
-          packages:
-            document.querySelector("h2 i.fa-suitcase").parentElement
-              .nextElementSibling,
-          hotels:
-            document.querySelector("h2 i.fa-hotel").parentElement
-              .nextElementSibling,
-        };
-
-        for (const key in allSections) {
-          if (value === "all" || key === value) {
-            allSections[key].style.display = "flex";
-            allSections[key].previousElementSibling.style.display = "block";
-          } else {
-            allSections[key].style.display = "none";
-            allSections[key].previousElementSibling.style.display = "none";
-          }
-        }
+        cards.forEach((card) => {
+          const text = card.textContent.toLowerCase();
+          card.style.display = text.includes(query) ? "block" : "none";
+        });
       });
     </script>
   </body>
