@@ -218,7 +218,7 @@ nav ul li a:hover {
 }
 .team-img {
     width: 150px;  
-    height: 150xp; 
+    height: 150px; 
     object-fit: cover;  
     border-radius: 50%; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
@@ -697,7 +697,7 @@ footer {
 }
 
 header h1 {
-  margin: 0;
+  margin-top: 50px;
   font-size: 24px;
 }
 
@@ -882,3 +882,109 @@ footer {
   border-radius: 5px;
   min-width: 200px;
 }
+/* Header */
+.upcoming-header {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.upcoming-header h1 {
+  color: #0d6efd;
+  font-size: 28px;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-icon img:hover {
+  transform: scale(1.1);
+}
+
+/* Section: Trip Summary */
+.trip-summary {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.trip-summary h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #343a40;
+}
+
+.trip-summary p {
+  color: #6c757d;
+}
+
+/* Section: Trip List */
+.trip-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.trip-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.trip-card:hover {
+  transform: translateY(-4px);
+}
+
+.trip-card h3 {
+  color: #0d6efd;
+  margin-bottom: 10px;
+}
+
+.trip-card p {
+  margin: 6px 0;
+}
+
+/* Buttons */
+.cancel-button,
+.book-flight-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+}
+
+.book-flight-button {
+  display: block;
+  margin: 40px auto 0;
+  background-color: #0d6efd;
+}
+
+.book-flight-button:hover {
+  background-color: #0b5ed7;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 50px;
+}
+
